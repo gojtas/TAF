@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: ContractTests.SWApiSpeciesSchemaTests
+-------------------------------------------------------------------------------
+Tests run: 37, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 18.512 s <<< FAILURE! - in ContractTests.SWApiSpeciesSchemaTests
+testSchema{String}[2]  Time elapsed: 0.071 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting empty but was:<[$.homeworld: null found, string expected]>
+	at ContractTests.SWApiSpeciesSchemaTests.testSchema(SWApiSpeciesSchemaTests.java:45)
+
