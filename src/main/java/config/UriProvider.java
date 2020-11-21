@@ -6,6 +6,7 @@ public enum UriProvider {
     PLANETSCHEMA(EnvConfig.getString("PLANETSschema.apiUrl")),
     SPECIESSCHEMA(EnvConfig.getString("SPECIESschema.apiUrl")),
     FILMSSCHEMA(EnvConfig.getString("FILMSschema.apiUrl")),
+    FILMSURI(EnvConfig.getString("FILMSURI.apiUrl")),
     PEOPLESCHEMA(EnvConfig.getString("PEOPLEschema.apiUrl")),
     STARSHIPSSCHEMA(EnvConfig.getString("STARSHIPSschema.apiUrl")),
     VEHICLESSCHEMA(EnvConfig.getString("VEHICLESschema.apiUrl"));

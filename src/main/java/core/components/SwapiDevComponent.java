@@ -4,7 +4,7 @@ import core.Request;
 import core.RequestService;
 import io.restassured.response.Response;
 
-import static config.UriProvider.SWAPIAPI;
+import static config.UriProvider.*;
 
 public class SwapiDevComponent {
 
@@ -22,6 +22,14 @@ public class SwapiDevComponent {
         Request request = new Request.RequestBuilder()
                 .setUri(SWAPIAPI.getUrl())
                 .setPath(element + "/" + elementIndex + "/")
+                .build();
+        return RequestService.getOperation(request);
+    }
+
+    public static Response getSwapiElementCounter(String elementType) {
+        Request request = new Request.RequestBuilder()
+                .setUri(SWAPIAPI.getUrl())
+                .setPath("/"+elementType)
                 .build();
         return RequestService.getOperation(request);
     }

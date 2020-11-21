@@ -25,18 +25,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Tag("CONTRACT")
 public class SWApiSpeciesSchemaTests {
+    final static String elementType = "species";
+
     private static final Logger LOGGER = Logger.getLogger(SWApiSpeciesSchemaTests.class.getName());
 
     public static Stream<String> dataProvider() {
         List<String> elementsList;
-        elementsList = ElementsGenerator.generateListOfStarWarsElements("species",
-                38);
+        elementsList = ElementsGenerator.generateListOfStarWarsElements(elementType);
         return elementsList.stream();
     }
 
     @ParameterizedTest(name = "Species schema check: {0}")
     @MethodSource("dataProvider")
-    @DisplayName("Verify Schema for Species: {0}")
+    @DisplayName("Verify Schema for Species")
     void testSchema(String input) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
 

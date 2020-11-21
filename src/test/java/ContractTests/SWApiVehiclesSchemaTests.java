@@ -23,16 +23,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Tag("CONTRACT")
 public class SWApiVehiclesSchemaTests {
+    final static String elementType = "vehicles";
+
     public static Stream<String> dataProvider() {
         List<String> elementsList;
-        elementsList = ElementsGenerator.generateListOfStarWarsElements("vehicles",
-                40);
+        elementsList = ElementsGenerator.generateListOfStarWarsElements(elementType);
         return elementsList.stream();
     }
 
     @ParameterizedTest(name = "Vehicles schema check: {0}")
     @MethodSource("dataProvider")
-    @DisplayName("Verify Schema for Vehicles: {0}")
+    @DisplayName("Verify Schema for Vehicles")
     void testSchema(String input) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
 
