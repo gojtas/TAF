@@ -26,7 +26,6 @@ public class SWApiFilmsSchemaTests {
     final static String elementType = "films";
 
     public static Stream<String> dataProvider() {
-
         List<String> elementsList;
         elementsList = ElementsGenerator.generateListOfStarWarsElements(elementType);
         return elementsList.stream();

@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static testdata.MessagesForSWApi.STATUS_OK;
 
 @Tag("COMPONENT")
-public class SwapiApiFilmsTests {
+public class SWApiApiElementsTests {
     private static final int NUM_LINES_TO_SKIP = 1;
 
     @ParameterizedTest(name = "Path {0} and index {1}.")
@@ -26,7 +26,7 @@ public class SwapiApiFilmsTests {
         String convertedBody = response.getBody().asString();
 
         assertThat(response.getStatusCode()).isEqualTo(200);
-        Logger.getLogger(SwapiApiFilmsTests.class.getName()).log(Level.INFO, STATUS_OK +
+        Logger.getLogger(SWApiApiElementsTests.class.getName()).log(Level.INFO, STATUS_OK +
                 "\n Body content: " + convertedBody);
     }
 
