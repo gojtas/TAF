@@ -3,13 +3,15 @@ package config;
 public enum UriProvider {
 
     SWAPIAPI(EnvConfig.getString("SWAPIApi.apiUrl")),
-    PLANETSCHEMA(EnvConfig.getString("PLANETSschema.apiUrl")),
-    SPECIESSCHEMA(EnvConfig.getString("SPECIESschema.apiUrl")),
-    FILMSSCHEMA(EnvConfig.getString("FILMSschema.apiUrl")),
-    FILMSURI(EnvConfig.getString("FILMSURI.apiUrl")),
-    PEOPLESCHEMA(EnvConfig.getString("PEOPLEschema.apiUrl")),
-    STARSHIPSSCHEMA(EnvConfig.getString("STARSHIPSschema.apiUrl")),
-    VEHICLESSCHEMA(EnvConfig.getString("VEHICLESschema.apiUrl"));
+    PLANETSCHEMA(EnvConfig.getString("SWAPIPLANETSSchema.apiUrl")),
+    SPECIESSCHEMA(EnvConfig.getString("SWAPISPECIESschema.apiUrl")),
+    FILMSSCHEMA(EnvConfig.getString("SWAPIFILMSschema.apiUrl")),
+    FILMSURI(EnvConfig.getString("SWAPIFILMSURI.apiUrl")),
+    PEOPLESCHEMA(EnvConfig.getString("SWAPIPEOPLEschema.apiUrl")),
+    STARSHIPSSCHEMA(EnvConfig.getString("SWAPISTARSHIPSschema.apiUrl")),
+    VEHICLESSCHEMA(EnvConfig.getString("SWAPIVEHICLESschema.apiUrl")),
+
+    GORESTAPI(EnvConfig.getString("GORESTAPI.apiUrl"));
     private final String baseUri;
 
     UriProvider(String baseUri) {

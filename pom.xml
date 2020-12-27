@@ -24,7 +24,7 @@
                 <configuration>
                     <runOrder>alphabetical</runOrder>
                     <properties>
-                        <includeTags>COMPONENT, HEALTH, SMOKE, DEV, CONTRACT</includeTags>
+                        <includeTags>COMPONENT, HEALTH, SMOKE, DEV, CONTRACT, GORESTCOMPONENT</includeTags>
                     </properties>
                 </configuration>
             </plugin>

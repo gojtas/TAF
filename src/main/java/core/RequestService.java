@@ -21,4 +21,42 @@ public class RequestService {
                 .auth().basic(request.getUserName(), request.getPassword())
                 .get(request.getPath());
     }
+
+    public static Response postOperation(Request request){
+        return given()
+                .baseUri(request.getUri())
+                .filter(new RequestLoggingFilter(LogDetail.ALL))
+                .queryParams(request.getQueryParamMap())
+                .headers(request.getHeaders())
+                .body(request.getBody())
+                .contentType(request.getContentType())
+                .auth().basic(request.getUserName(), request.getPassword())
+                .post(request.getPath());
+    }
+
+    public static Response putOperation(Request request){
+        return given()
+                .baseUri(request.getUri())
+                .filter(new RequestLoggingFilter(LogDetail.ALL))
+                .queryParams(request.getQueryParamMap())
+                .headers(request.getHeaders())
+                .body(request.getBody())
+                .contentType(request.getContentType())
+                .auth().basic(request.getUserName(), request.getPassword())
+                .put(request.getPath());
+    }
+
+    public static Response patchOperation(Request request){
+        return given()
+                .baseUri(request.getUri())
+                .filter(new RequestLoggingFilter(LogDetail.ALL))
+                .queryParams(request.getQueryParamMap())
+                .headers(request.getHeaders())
+                .body(request.getBody())
+                .contentType(request.getContentType())
+                .auth().basic(request.getUserName(), request.getPassword())
+                .patch(request.getPath());
+    }
+
+
 }

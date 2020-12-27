@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.networknt.schema.JsonSchema;
 import com.networknt.schema.JsonSchemaFactory;
 import com.networknt.schema.ValidationMessage;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -21,6 +22,7 @@ import java.util.stream.Stream;
 import static config.UriProvider.PLANETSCHEMA;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Disabled
 @Tag("CONTRACT")
 public class SWApiPlanetsSchemaTests {
     final static String elementType = "planets";

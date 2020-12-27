@@ -1,25 +1,23 @@
 package HealthTests;
 
-import core.components.SwapiDevComponent;
+import core.components.GoRestAPIComponent;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Disabled
-@Tag("HEALTH")
-public class SWApiHealthTest {
+@Tag("GORESTHEALTHCHECK")
+public class GoRestAPIHealthTest {
     private int STATUS_OK = 200;
 
     @Test
-    @DisplayName("Health Check for SWApi")
+    @DisplayName("Health Check for GoRest")
     void test() {
-        String suiteName = "Health Check for SWApi";
+        String suiteName = "Health Check for GoRest";
 
-        Response response = SwapiDevComponent.getSwapiHealthStatus();
+        Response response = GoRestAPIComponent.getGoRESTHealthStatus();
         assertThat(response.getStatusCode()).isEqualTo(STATUS_OK);
     }
 }

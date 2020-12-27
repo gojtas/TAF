@@ -2,6 +2,7 @@ package ComponentTests;
 
 import core.components.SwapiDevComponent;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -14,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static testdata.MessagesForSWApi.STATUS_OK;
 
 @Tag("COMPONENT")
+@Disabled
 public class SWApiApiElementsTests {
     private static final int NUM_LINES_TO_SKIP = 1;
 

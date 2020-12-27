@@ -4,6 +4,7 @@ import ComponentTests.SWApiApiElementsTests;
 import core.components.SwapiDevComponent;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -15,6 +16,7 @@ import java.util.logging.Logger;
 import static org.assertj.core.api.Assertions.assertThat;
 import static testdata.MessagesForSWApi.STATUS_OK;
 
+@Disabled
 public class SWApiPerformanceTests {
 
     private static final int NUM_LINES_TO_SKIP = 1;
