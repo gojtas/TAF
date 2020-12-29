@@ -18,14 +18,6 @@ public class GoRestAPIComponent {
     private GoRestAPIComponent() {
     }
 
-    public static Response getGoRESTHealthStatus() {
-        Request request = new Request.RequestBuilder()
-                .setUri(GORESTAPI.getUrl())
-                .setPath("/users")
-                .build();
-        return RequestService.getOperation(request);
-    }
-
     public static Response getGoRESTElement(String element, int elementIndex) {
         Request request = new Request.RequestBuilder()
                 .setUri(GORESTAPI.getUrl())

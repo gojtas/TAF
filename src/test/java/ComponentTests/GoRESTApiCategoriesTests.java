@@ -46,7 +46,7 @@ public class GoRESTApiCategoriesTests {
 
     @Test
     @DisplayName("Elements number should be >= to 22")
-    void test3() {
+    void test2() {
         Response responseNumberCheck = GoRestAPIComponent.getGoRESTElementCounter(elementType);
         ResponseConverter responseConverter = new ResponseConverter(responseNumberCheck);
         JSONObject jsonObject = responseConverter.toJsonObject();
