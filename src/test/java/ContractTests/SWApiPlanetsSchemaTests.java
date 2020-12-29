@@ -22,7 +22,6 @@ import java.util.stream.Stream;
 import static config.UriProvider.PLANETSCHEMA;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Disabled
 @Tag("CONTRACT")
 public class SWApiPlanetsSchemaTests {
     final static String elementType = "planets";

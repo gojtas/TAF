@@ -15,7 +15,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static testdata.MessagesForSWApi.STATUS_OK;
 
 @Tag("COMPONENT")
-@Disabled
 public class SWApiApiElementsTests {
     private static final int NUM_LINES_TO_SKIP = 1;
 

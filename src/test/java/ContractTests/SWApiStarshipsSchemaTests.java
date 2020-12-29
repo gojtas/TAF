@@ -22,7 +22,6 @@ import java.util.stream.Stream;
 import static config.UriProvider.STARSHIPSSCHEMA;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Disabled
 @Tag("CONTRACT")
 public class SWApiStarshipsSchemaTests {
     final static String elementType = "starships";

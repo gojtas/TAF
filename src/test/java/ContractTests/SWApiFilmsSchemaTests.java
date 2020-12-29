@@ -22,7 +22,6 @@ import java.util.stream.Stream;
 import static config.UriProvider.FILMSSCHEMA;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Disabled
 @Tag("CONTRACT")
 public class SWApiFilmsSchemaTests {
     final static String elementType = "films";

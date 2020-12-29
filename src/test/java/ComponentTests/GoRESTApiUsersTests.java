@@ -33,7 +33,7 @@ public class GoRESTApiUsersTests {
 
     @MethodSource("dataProvider")
     @ParameterizedTest(name = "Check for user with id {0}")
-    @DisplayName("Element check for GOREST")
+    @DisplayName("Users check for GOREST")
     void test1(int index) {
         Response response = GoRestAPIComponent.getGoRESTElement(elementType, index);
         String convertedBody = response.getBody().asString();
@@ -44,30 +44,15 @@ public class GoRESTApiUsersTests {
     }
 
     @Test
-    @DisplayName("Post for GOREST")
+    @DisplayName("Elements number should be >= to 1200")
     void test2() {
-        Response response = GoRestAPIComponent.postGoRESTElement(elementType);
-        assertThat(response.getStatusCode()).isEqualTo(200);
-
-        ResponseConverter responseConverter = new ResponseConverter(response);
-        JSONObject jsonObject = responseConverter.toJsonObject();
-        Integer json = jsonObject.getInt("code");
-
-        assertTrue(json.equals(201));
-        Logger.getLogger(GoRESTApiUsersTests.class.getName()).log(Level.INFO,
-                "\n Current status code is " + json);
-    }
-
-    @Test
-    @DisplayName("Elements number should be >= to 1461")
-    void test3() {
         Response responseNumberCheck = GoRestAPIComponent.getGoRESTElementCounter(elementType);
         ResponseConverter responseConverter = new ResponseConverter(responseNumberCheck);
         JSONObject jsonObject = responseConverter.toJsonObject();
         JSONObject json = jsonObject.getJSONObject("meta").getJSONObject("pagination");
         Integer counterValue = json.getInt("total");
 
-        assertTrue(counterValue >= 1463);
+        assertTrue(counterValue >= 1200);
         Logger.getLogger(GoRESTApiUsersTests.class.getName()).log(Level.INFO, STATUS_OK +
                 "\n Number of elements: " + counterValue);
     }

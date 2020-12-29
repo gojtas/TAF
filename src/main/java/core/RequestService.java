@@ -34,7 +34,7 @@ public class RequestService {
                 .post(request.getPath());
     }
 
-    public static Response putOperation(Request request){
+    public static Response deleteOperation(Request request){
         return given()
                 .baseUri(request.getUri())
                 .filter(new RequestLoggingFilter(LogDetail.ALL))
@@ -43,7 +43,7 @@ public class RequestService {
                 .body(request.getBody())
                 .contentType(request.getContentType())
                 .auth().basic(request.getUserName(), request.getPassword())
-                .put(request.getPath());
+                .delete(request.getPath());
     }
 
     public static Response patchOperation(Request request){

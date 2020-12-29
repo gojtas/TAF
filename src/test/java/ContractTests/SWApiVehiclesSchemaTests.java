@@ -22,7 +22,6 @@ import java.util.stream.Stream;
 import static config.UriProvider.VEHICLESSCHEMA;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Disabled
 @Tag("CONTRACT")
 public class SWApiVehiclesSchemaTests {
     final static String elementType = "vehicles";

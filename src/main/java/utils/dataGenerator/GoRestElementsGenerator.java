@@ -48,8 +48,21 @@ public class GoRestElementsGenerator {
         int elementCounter = jsonAsInt + 1;
         return elementCounter;
     }
+
     public static String getBodyForPost(){
-        String body = "{\"name\":\"Mateusz Gojtowski\", \"gender\":\"Male\", " +
+        String body = "{\"name\":\"Gojtas\", \"gender\":\"Male\", " +
+                "\"email\":\"Matthew.Relevant@" + Math.random() + ".com\", \"status\":\"Active\"}";
+        return body;
+    }
+
+    public static String getBodyForNested(){
+        String body = "{\"title\":\"New Test Post\", \"body\":\"test body\", \"user\":\"Gojtas\"," +
+                "\"name\":\"Don\", \"email\":\"PabloDO@asdasddf.com\", \"user_id\":\"122\", \"completed\":\"done\"}";
+        return body;
+    }
+
+    public static String getBodyForPatch(){
+        String body = "{\"name\":\"PatchGojtas\", \"gender\":\"Male\", " +
                 "\"email\":\"Matthew.Relevant@" + Math.random() + ".com\", \"status\":\"Active\"}";
         return body;
     }

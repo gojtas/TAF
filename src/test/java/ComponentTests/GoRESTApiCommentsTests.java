@@ -33,7 +33,7 @@ public class GoRESTApiCommentsTests {
 
     @MethodSource("dataProvider")
     @ParameterizedTest(name = "Check for comments with id {0}")
-    @DisplayName("Element check for GOREST")
+    @DisplayName("Comments check for GOREST")
     void test1(int index) {
         Response response = GoRestAPIComponent.getGoRESTElement(elementType, index);
         String convertedBody = response.getBody().asString();

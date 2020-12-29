@@ -24,7 +24,6 @@ import java.util.stream.Stream;
 import static config.UriProvider.SPECIESSCHEMA;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Disabled
 @Tag("CONTRACT")
 public class SWApiSpeciesSchemaTests {
     final static String elementType = "species";

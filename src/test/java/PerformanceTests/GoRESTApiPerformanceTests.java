@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import static org.assertj.core.api.Assertions.assertThat;
 import static testdata.MessagesForSWApi.STATUS_OK;
 
+@Tag("GORESTCOMPONENT")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class GoRESTApiPerformanceTests {
 

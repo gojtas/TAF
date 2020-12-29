@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Disabled
 @Tag("HEALTH")
 public class SWApiHealthTest {
     private int STATUS_OK = 200;

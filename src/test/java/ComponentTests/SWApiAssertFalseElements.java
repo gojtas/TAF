@@ -13,7 +13,6 @@ import java.util.logging.Logger;
 import static org.assertj.core.api.Assertions.assertThat;
 import static testdata.MessagesForSWApi.STATUS_OK;
 
-@Disabled
 public class SWApiAssertFalseElements {
     private static final int NUM_LINES_TO_SKIP = 1;
 

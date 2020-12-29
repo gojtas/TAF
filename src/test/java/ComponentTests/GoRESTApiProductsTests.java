@@ -33,7 +33,7 @@ public class GoRESTApiProductsTests {
 
     @MethodSource("dataProvider")
     @ParameterizedTest(name = "Check for Products with id {0}")
-    @DisplayName("Element check for GOREST")
+    @DisplayName("Products check for GOREST")
     void test1(int index) {
         Response response = GoRestAPIComponent.getGoRESTElement(elementType, index);
         String convertedBody = response.getBody().asString();
@@ -44,7 +44,7 @@ public class GoRESTApiProductsTests {
     }
 
     @Test
-    @DisplayName("Elements number should be => to 225")
+    @DisplayName("Elements number should be => to 100")
     void test2() {
         Response responseNumberCheck = GoRestAPIComponent.getGoRESTElementCounter(elementType);
         ResponseConverter responseConverter = new ResponseConverter(responseNumberCheck);
@@ -52,7 +52,7 @@ public class GoRESTApiProductsTests {
         JSONObject json = jsonObject.getJSONObject("meta").getJSONObject("pagination");
         Integer counterValue = json.getInt("total");
 
-        assertTrue(counterValue >= 225);
+        assertTrue(counterValue >= 100);
         Logger.getLogger(GoRESTApiProductsTests.class.getName()).log(Level.INFO, STATUS_OK +
                 "\n Number of elements: " + counterValue);
     }
