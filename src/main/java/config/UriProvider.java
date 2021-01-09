@@ -6,7 +6,6 @@ public enum UriProvider {
     PLANETSCHEMA(EnvConfig.getString("SWAPIPLANETSSchema.apiUrl")),
     SPECIESSCHEMA(EnvConfig.getString("SWAPISPECIESschema.apiUrl")),
     FILMSSCHEMA(EnvConfig.getString("SWAPIFILMSschema.apiUrl")),
-    FILMSURI(EnvConfig.getString("SWAPIFILMSURI.apiUrl")),
     PEOPLESCHEMA(EnvConfig.getString("SWAPIPEOPLEschema.apiUrl")),
     STARSHIPSSCHEMA(EnvConfig.getString("SWAPISTARSHIPSschema.apiUrl")),
     VEHICLESSCHEMA(EnvConfig.getString("SWAPIVEHICLESschema.apiUrl")),

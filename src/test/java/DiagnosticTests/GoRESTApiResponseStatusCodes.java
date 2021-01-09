@@ -1,24 +1,27 @@
-package UnitTests;
+package DiagnosticTests;
 
+import UnitTests.GoRESTApiUsersCRUDTests;
 import core.ResponseConverter;
 import core.components.GoRestAPIComponent;
 import io.restassured.response.Response;
 import org.json.JSONObject;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class GoRESTApiUsersCRUDTests {
+public class GoRESTApiResponseStatusCodes {
     final static String elementType = "users";
-    static Integer idFromResponse = 0;
+    static Integer idFromResponse = 1;
 
     @Test
     @Order(1)
-    @DisplayName("Post for GOREST")
+    @DisplayName("Post for GOREST - 201 - Expected")
     void test1() {
         Response response = GoRestAPIComponent.postGoRESTElement(elementType);
         assertThat(response.getStatusCode()).isEqualTo(200);
@@ -35,25 +38,7 @@ public class GoRESTApiUsersCRUDTests {
 
     @Test
     @Order(2)
-    @DisplayName("PATCH for GOREST")
-    void test2() {
-        Response response = GoRestAPIComponent.patchGoRESTElement(elementType, idFromResponse);
-        assertThat(response.getStatusCode()).isEqualTo(200);
-
-        ResponseConverter responseConverter = new ResponseConverter(response);
-        JSONObject jsonObject = responseConverter.toJsonObject();
-        Integer json = jsonObject.getInt("code");
-        String patchedName = jsonObject.getJSONObject("data").getString("name");
-
-        assertTrue(json.equals(200) && patchedName.equals("PatchGojtas"));
-        Logger.getLogger(GoRESTApiUsersCRUDTests.class.getName()).log(Level.INFO,
-                "\n Current status code is " + json +
-                        "\n and name: " + patchedName);
-    }
-
-    @Test
-    @Order(3)
-    @DisplayName("GET for GOREST")
+    @DisplayName("GET for GOREST - 200 - Expected")
     void test3() {
         Response response = GoRestAPIComponent.getGoRESTElement(elementType, idFromResponse);
         assertThat(response.getStatusCode()).isEqualTo(200);
@@ -68,8 +53,8 @@ public class GoRESTApiUsersCRUDTests {
     }
 
     @Test
-    @Order(4)
-    @DisplayName("DELETE for GOREST")
+    @Order(3)
+    @DisplayName("DELETE for GOREST - 204 - Expected")
     void test4() {
         Response response = GoRestAPIComponent.deleteGoRESTElement(elementType, idFromResponse);
         assertThat(response.getStatusCode()).isEqualTo(200);

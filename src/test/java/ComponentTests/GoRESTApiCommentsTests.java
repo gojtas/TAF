@@ -44,7 +44,7 @@ public class GoRESTApiCommentsTests {
     }
 
     @Test
-    @DisplayName("Elements number should be >= to 1380")
+    @DisplayName("Elements number should be >= to 1200")
     void test2() {
         Response responseNumberCheck = GoRestAPIComponent.getGoRESTElementCounter(elementType);
         ResponseConverter responseConverter = new ResponseConverter(responseNumberCheck);
@@ -52,7 +52,7 @@ public class GoRESTApiCommentsTests {
         JSONObject json = jsonObject.getJSONObject("meta").getJSONObject("pagination");
         Integer counterValue = json.getInt("total");
 
-        assertTrue(counterValue >= 1380);
+        assertTrue(counterValue >= 1200);
         Logger.getLogger(GoRESTApiCommentsTests.class.getName()).log(Level.INFO, STATUS_OK +
                 "\n Number of elements: " + counterValue);
     }
