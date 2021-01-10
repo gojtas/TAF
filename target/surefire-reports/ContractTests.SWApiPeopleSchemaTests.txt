@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ContractTests.SWApiPeopleSchemaTests
--------------------------------------------------------------------------------
-Tests run: 81, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 28.541 s - in ContractTests.SWApiPeopleSchemaTests
