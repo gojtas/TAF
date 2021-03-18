@@ -33,4 +33,12 @@ public class SwapiDevComponent {
                 .build();
         return RequestService.getOperation(request);
     }
+
+    public static Response getSearchElement(String element, String keyword) {
+        Request request = new Request.RequestBuilder()
+                .setUri(SWAPIAPI.getUrl())
+                .setPath(element + "/?search=" + keyword)
+                .build();
+        return RequestService.getOperation(request);
+    }
 }
