@@ -1,0 +1,261 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+    {
+      "name": "CR90 corvette",
+      "model": "CR90 corvette",
+      "manufacturer": "Corellian Engineering Corporation",
+      "cost_in_credits": "3500000",
+      "length": "150",
+      "max_atmosphering_speed": "950",
+      "crew": "30-165",
+      "passengers": "600",
+      "cargo_capacity": "3000000",
+      "consumables": "1 year",
+      "hyperdrive_rating": "2.0",
+      "MGLT": "60",
+      "starship_class": "corvette",
+      "pilots": [],
+      "films": [
+        "http://swapi.dev/api/films/1/",
+        "http://swapi.dev/api/films/3/",
+        "http://swapi.dev/api/films/6/"
+      ],
+      "created": "2014-12-10T14:20:33.369000Z",
+      "edited": "2014-12-20T21:23:49.867000Z",
+      "url": "http://swapi.dev/api/starships/2/"
+    }
+  ],
+  "required": [
+    "name",
+    "model",
+    "manufacturer",
+    "cost_in_credits",
+    "length",
+    "max_atmosphering_speed",
+    "crew",
+    "passengers",
+    "cargo_capacity",
+    "consumables",
+    "hyperdrive_rating",
+    "MGLT",
+    "starship_class",
+    "pilots",
+    "films",
+    "created",
+    "edited",
+    "url"
+  ],
+  "properties": {
+    "name": {
+      "$id": "#/properties/name",
+      "type": "string",
+      "title": "The name schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "CR90 corvette"
+      ]
+    },
+    "model": {
+      "$id": "#/properties/model",
+      "type": "string",
+      "title": "The model schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "CR90 corvette"
+      ]
+    },
+    "manufacturer": {
+      "$id": "#/properties/manufacturer",
+      "type": "string",
+      "title": "The manufacturer schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "Corellian Engineering Corporation"
+      ]
+    },
+    "cost_in_credits": {
+      "$id": "#/properties/cost_in_credits",
+      "type": "string",
+      "title": "The cost_in_credits schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "3500000"
+      ]
+    },
+    "length": {
+      "$id": "#/properties/length",
+      "type": "string",
+      "title": "The length schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "150"
+      ]
+    },
+    "max_atmosphering_speed": {
+      "$id": "#/properties/max_atmosphering_speed",
+      "type": "string",
+      "title": "The max_atmosphering_speed schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "950"
+      ]
+    },
+    "crew": {
+      "$id": "#/properties/crew",
+      "type": "string",
+      "title": "The crew schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "30-165"
+      ]
+    },
+    "passengers": {
+      "$id": "#/properties/passengers",
+      "type": "string",
+      "title": "The passengers schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "600"
+      ]
+    },
+    "cargo_capacity": {
+      "$id": "#/properties/cargo_capacity",
+      "type": "string",
+      "title": "The cargo_capacity schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "3000000"
+      ]
+    },
+    "consumables": {
+      "$id": "#/properties/consumables",
+      "type": "string",
+      "title": "The consumables schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "1 year"
+      ]
+    },
+    "hyperdrive_rating": {
+      "$id": "#/properties/hyperdrive_rating",
+      "type": "string",
+      "title": "The hyperdrive_rating schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "2.0"
+      ]
+    },
+    "MGLT": {
+      "$id": "#/properties/MGLT",
+      "type": "string",
+      "title": "The MGLT schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "60"
+      ]
+    },
+    "starship_class": {
+      "$id": "#/properties/starship_class",
+      "type": "string",
+      "title": "The starship_class schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "corvette"
+      ]
+    },
+    "pilots": {
+      "$id": "#/properties/pilots",
+      "type": "array",
+      "title": "The pilots schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "examples": [
+        []
+      ],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/pilots/items"
+      }
+    },
+    "films": {
+      "$id": "#/properties/films",
+      "type": "array",
+      "title": "The films schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "examples": [
+        [
+          "http://swapi.dev/api/films/1/",
+          "http://swapi.dev/api/films/3/"
+        ]
+      ],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/films/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/films/items/anyOf/0",
+            "type": "string",
+            "title": "The first anyOf schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+              "http://swapi.dev/api/films/1/",
+              "http://swapi.dev/api/films/3/"
+            ]
+          }
+        ]
+      }
+    },
+    "created": {
+      "$id": "#/properties/created",
+      "type": "string",
+      "title": "The created schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "2014-12-10T14:20:33.369000Z"
+      ]
+    },
+    "edited": {
+      "$id": "#/properties/edited",
+      "type": "string",
+      "title": "The edited schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "2014-12-20T21:23:49.867000Z"
+      ]
+    },
+    "url": {
+      "$id": "#/properties/url",
+      "type": "string",
+      "title": "The url schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "http://swapi.dev/api/starships/2/"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

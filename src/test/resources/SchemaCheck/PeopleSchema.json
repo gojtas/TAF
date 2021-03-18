@@ -1,0 +1,284 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+    {
+      "name": "Luke Skywalker",
+      "height": "172",
+      "mass": "77",
+      "hair_color": "blond",
+      "skin_color": "fair",
+      "eye_color": "blue",
+      "birth_year": "19BBY",
+      "gender": "male",
+      "homeworld": "http://swapi.dev/api/planets/1/",
+      "films": [
+        "http://swapi.dev/api/films/1/",
+        "http://swapi.dev/api/films/2/",
+        "http://swapi.dev/api/films/3/",
+        "http://swapi.dev/api/films/6/"
+      ],
+      "species": [],
+      "vehicles": [
+        "http://swapi.dev/api/vehicles/14/",
+        "http://swapi.dev/api/vehicles/30/"
+      ],
+      "starships": [
+        "http://swapi.dev/api/starships/12/",
+        "http://swapi.dev/api/starships/22/"
+      ],
+      "created": "2014-12-09T13:50:51.644000Z",
+      "edited": "2014-12-20T21:17:56.891000Z",
+      "url": "http://swapi.dev/api/people/1/"
+    }
+  ],
+  "required": [
+    "name",
+    "height",
+    "mass",
+    "hair_color",
+    "skin_color",
+    "eye_color",
+    "birth_year",
+    "gender",
+    "homeworld",
+    "films",
+    "species",
+    "vehicles",
+    "starships",
+    "created",
+    "edited",
+    "url"
+  ],
+  "properties": {
+    "name": {
+      "$id": "#/properties/name",
+      "type": "string",
+      "title": "The name schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "Luke Skywalker"
+      ]
+    },
+    "height": {
+      "$id": "#/properties/height",
+      "type": "string",
+      "title": "The height schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "172"
+      ]
+    },
+    "mass": {
+      "$id": "#/properties/mass",
+      "type": "string",
+      "title": "The mass schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "77"
+      ]
+    },
+    "hair_color": {
+      "$id": "#/properties/hair_color",
+      "type": "string",
+      "title": "The hair_color schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "blond"
+      ]
+    },
+    "skin_color": {
+      "$id": "#/properties/skin_color",
+      "type": "string",
+      "title": "The skin_color schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "fair"
+      ]
+    },
+    "eye_color": {
+      "$id": "#/properties/eye_color",
+      "type": "string",
+      "title": "The eye_color schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "blue"
+      ]
+    },
+    "birth_year": {
+      "$id": "#/properties/birth_year",
+      "type": "string",
+      "title": "The birth_year schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "19BBY"
+      ]
+    },
+    "gender": {
+      "$id": "#/properties/gender",
+      "type": "string",
+      "title": "The gender schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "male"
+      ]
+    },
+    "homeworld": {
+      "$id": "#/properties/homeworld",
+      "type": "string",
+      "title": "The homeworld schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "http://swapi.dev/api/planets/1/"
+      ]
+    },
+    "films": {
+      "$id": "#/properties/films",
+      "type": "array",
+      "title": "The films schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "examples": [
+        [
+          "http://swapi.dev/api/films/1/",
+          "http://swapi.dev/api/films/2/"
+        ]
+      ],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/films/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/films/items/anyOf/0",
+            "type": "string",
+            "title": "The first anyOf schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+              "http://swapi.dev/api/films/1/",
+              "http://swapi.dev/api/films/2/"
+            ]
+          }
+        ]
+      }
+    },
+    "species": {
+      "$id": "#/properties/species",
+      "type": "array",
+      "title": "The species schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "examples": [
+        []
+      ],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/species/items"
+      }
+    },
+    "vehicles": {
+      "$id": "#/properties/vehicles",
+      "type": "array",
+      "title": "The vehicles schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "examples": [
+        [
+          "http://swapi.dev/api/vehicles/14/",
+          "http://swapi.dev/api/vehicles/30/"
+        ]
+      ],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/vehicles/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/vehicles/items/anyOf/0",
+            "type": "string",
+            "title": "The first anyOf schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+              "http://swapi.dev/api/vehicles/14/",
+              "http://swapi.dev/api/vehicles/30/"
+            ]
+          }
+        ]
+      }
+    },
+    "starships": {
+      "$id": "#/properties/starships",
+      "type": "array",
+      "title": "The starships schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "examples": [
+        [
+          "http://swapi.dev/api/starships/12/",
+          "http://swapi.dev/api/starships/22/"
+        ]
+      ],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/starships/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/starships/items/anyOf/0",
+            "type": "string",
+            "title": "The first anyOf schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+              "http://swapi.dev/api/starships/12/",
+              "http://swapi.dev/api/starships/22/"
+            ]
+          }
+        ]
+      }
+    },
+    "created": {
+      "$id": "#/properties/created",
+      "type": "string",
+      "title": "The created schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "2014-12-09T13:50:51.644000Z"
+      ]
+    },
+    "edited": {
+      "$id": "#/properties/edited",
+      "type": "string",
+      "title": "The edited schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "2014-12-20T21:17:56.891000Z"
+      ]
+    },
+    "url": {
+      "$id": "#/properties/url",
+      "type": "string",
+      "title": "The url schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "http://swapi.dev/api/people/1/"
+      ]
+    }
+  },
+  "additionalProperties": true
+}
