@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import static constants.Constants.NOT_FOUND_CODE;
 import static constants.Constants.NUM_LINES_TO_SKIP;
 import static org.assertj.core.api.Assertions.assertThat;
-import static testdata.MessagesForSWApi.STATUS_OK;
+import static testdata.MessagesForSWApi.STATUS_OK_EXPECTED;
 
 class SWApiAssertFalseElements {
     private final Logger logger = Logger.getLogger(SWApiAssertFalseElements.class.getName());
@@ -25,7 +25,7 @@ class SWApiAssertFalseElements {
         String convertedBody = response.getBody().asString();
 
         assertThat(response.getStatusCode()).isEqualTo(NOT_FOUND_CODE);
-        logger.log(Level.INFO, STATUS_OK +
+        logger.log(Level.INFO, STATUS_OK_EXPECTED +
                 "\n Body content: " + convertedBody);
     }
 
@@ -38,7 +38,7 @@ class SWApiAssertFalseElements {
         String convertedBody = response.getBody().asString();
 
         assertThat(response.getStatusCode()).isEqualTo(NOT_FOUND_CODE);
-        logger.log(Level.INFO, STATUS_OK +
+        logger.log(Level.INFO, STATUS_OK_EXPECTED +
                 "\n Body content: " + convertedBody);
     }
 }

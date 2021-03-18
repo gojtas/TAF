@@ -29,7 +29,7 @@ public class SwapiDevComponent {
     public static Response getSwapiElementCounter(String elementType) {
         Request request = new Request.RequestBuilder()
                 .setUri(SWAPIAPI.getUrl())
-                .setPath("/"+elementType)
+                .setPath("/" + elementType)
                 .build();
         return RequestService.getOperation(request);
     }
