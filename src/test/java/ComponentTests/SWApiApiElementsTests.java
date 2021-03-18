@@ -16,6 +16,7 @@ import static testdata.MessagesForSWApi.STATUS_OK;
 
 @Tag("COMPONENT")
 public class SWApiApiElementsTests {
+    private final Logger logger = Logger.getLogger(SWApiApiElementsTests.class.getName());
 
     @ParameterizedTest(name = "Path {0} and index {1}.")
     @DisplayName("Element check for SWApi")
@@ -26,7 +27,7 @@ public class SWApiApiElementsTests {
         String convertedBody = response.getBody().asString();
 
         assertThat(response.getStatusCode()).isEqualTo(Constants.STATUS_OK);
-        Logger.getLogger(SWApiApiElementsTests.class.getName()).log(Level.INFO, STATUS_OK +
+        logger.log(Level.INFO, STATUS_OK +
                 "\n Body content: " + convertedBody);
     }
 

@@ -30,7 +30,6 @@ class SWApiFilmsSchemaTests {
     void testSchema(String transactionJsonOutput) {
 
         expectedSchema = InputFileReader.readDataFromFile(schemaFilms);
-
         SchemaCheck.checkSchema(transactionJsonOutput, expectedSchema);
     }
 }

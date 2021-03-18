@@ -28,8 +28,8 @@ class SWApiPeopleSchemaTests {
     @MethodSource("dataProvider")
     @DisplayName("Verify Schema for People")
     void testSchema(String transactionJsonOutput) {
-        expectedSchema = InputFileReader.readDataFromFile(schemaPeople);
 
+        expectedSchema = InputFileReader.readDataFromFile(schemaPeople);
         SchemaCheck.checkSchema(transactionJsonOutput, expectedSchema);
     }
 }

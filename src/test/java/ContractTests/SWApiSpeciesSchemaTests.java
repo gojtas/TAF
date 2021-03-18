@@ -2,7 +2,6 @@ package ContractTests;
 
 import core.SchemaCheck;
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -18,8 +17,6 @@ class SWApiSpeciesSchemaTests {
 
     private String expectedSchema = null;
     private String schemaSpecies = "SchemaCheck/SpeciesSchema.json";
-
-    private static final Logger LOGGER = Logger.getLogger(SWApiSpeciesSchemaTests.class.getName());
 
     static Stream<String> dataProvider() {
         List<String> elementsList;
