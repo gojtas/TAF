@@ -13,8 +13,8 @@ import static constants.Constants.NUM_LINES_TO_SKIP;
 import static org.assertj.core.api.Assertions.assertThat;
 import static testdata.MessagesForSWApi.STATUS_OK_EXPECTED;
 
-class SWApiAssertFalseElements {
-    private final Logger logger = Logger.getLogger(SWApiAssertFalseElements.class.getName());
+class SWApiNegativeScenariosTests {
+    private final Logger logger = Logger.getLogger(SWApiNegativeScenariosTests.class.getName());
 
     @ParameterizedTest(name = "Path {0} and index {1}.")
     @DisplayName("Not found element check for SWApi")

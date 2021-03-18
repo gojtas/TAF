@@ -5,7 +5,6 @@ import core.components.SwapiDevComponent;
 import io.restassured.response.Response;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -17,7 +16,7 @@ import static constants.Constants.NUM_LINES_TO_SKIP;
 
 @Tag("COMPONENT")
 class SWApiSearchTests {
-    private final Logger logger = Logger.getLogger(SWApiApiElementsTests.class.getName());
+    private final Logger logger = Logger.getLogger(SWApiHeadersTests.class.getName());
 
     @ParameterizedTest(name = "Path {0} and keyword {1}.")
     @DisplayName("Element check for SWApi")

@@ -15,8 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static testdata.MessagesForSWApi.STATUS_OK_EXPECTED;
 
 @Tag("COMPONENT")
-class SWApiApiElementsTests {
-    private final Logger logger = Logger.getLogger(SWApiApiElementsTests.class.getName());
+class SWApiHeadersTests {
+    private final Logger logger = Logger.getLogger(SWApiHeadersTests.class.getName());
 
     @ParameterizedTest(name = "Path {0} and index {1}.")
     @DisplayName("Element check for SWApi")
