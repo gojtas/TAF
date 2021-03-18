@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import static constants.Constants.NUM_LINES_TO_SKIP;
+import static constants.Constants.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static testdata.MessagesForSWApi.STATUS_OK_EXPECTED;
 
@@ -26,9 +26,27 @@ class SWApiApiElementsTests {
         Response response = SwapiDevComponent.getSwapiElement(element, index);
         String convertedBody = response.getBody().asString();
 
-        assertThat(response.getStatusCode()).isEqualTo(Constants.STATUS_OK);
-        logger.log(Level.INFO, STATUS_OK_EXPECTED +
+        assertThat(response.getStatusCode()).withFailMessage("Wrong status code")
+                .isEqualTo(Constants.STATUS_OK);
+        logger.log(Level.INFO, STATUS_OK_EXPECTED.getUrl() +
                 "\n Body content: " + convertedBody);
+
+        assertThat(response.getContentType()).withFailMessage("Wrong Content Type.")
+                .isEqualTo(CONTENT_TYPE);
+        logger.log(Level.INFO, "Content Type: " + response.getContentType());
+
+        assertThat(response.getHeader(CONNECTION)).withFailMessage("Wrong connection type")
+                .isEqualTo(CONNECTION_EXPECTED);
+        logger.log(Level.INFO, CONNECTION + " " + response.getHeader(CONNECTION));
+
+        assertThat(response.getHeader(VARY)).withFailMessage("Wrong connection type")
+                .isEqualTo(VARY_EXPECTED);
+        logger.log(Level.INFO, VARY + " " + response.getHeader(VARY));
+
+        assertThat(response.getHeader(X_FRAME_OPTIONS)).withFailMessage("Wrong connection type")
+                .isEqualTo(X_FRAME_OPTIONS_EXPECTED);
+        logger.log(Level.INFO, X_FRAME_OPTIONS + " " + response.getHeader(X_FRAME_OPTIONS));
+
     }
 
 }

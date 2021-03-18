@@ -2,7 +2,7 @@ package testdata;
 
 public enum MessagesForSWApi {
 
-    STATUS_OK_EXPECTED("Expected Status Code OK");
+    STATUS_OK_EXPECTED("Expected Status Code Passed");
     private final String message;
 
     MessagesForSWApi(String message) {
