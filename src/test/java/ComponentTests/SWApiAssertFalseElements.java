@@ -6,14 +6,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
+import static constants.Constants.NOT_FOUND_CODE;
+import static constants.Constants.NUM_LINES_TO_SKIP;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static testdata.MessagesForSWApi.STATUS_OK;
 
-public class SWApiAssertFalseElements {
-    private static final int NUM_LINES_TO_SKIP = 1;
+class SWApiAssertFalseElements {
+    private final Logger logger = Logger.getLogger(SWApiAssertFalseElements.class.getName());
 
     @ParameterizedTest(name = "Path {0} and index {1}.")
     @DisplayName("Not found element check for SWApi")
@@ -23,8 +25,8 @@ public class SWApiAssertFalseElements {
         Response response = SwapiDevComponent.getSwapiElement(element, index);
         String convertedBody = response.getBody().asString();
 
-        assertThat(response.getStatusCode()).isEqualTo(404);
-        Logger.getLogger(SWApiApiElementsTests.class.getName()).log(Level.INFO, STATUS_OK +
+        assertThat(response.getStatusCode()).isEqualTo(NOT_FOUND_CODE);
+        logger.log(Level.INFO, STATUS_OK +
                 "\n Body content: " + convertedBody);
     }
 
@@ -36,8 +38,8 @@ public class SWApiAssertFalseElements {
         Response response = SwapiDevComponent.getSwapiElement(element, index);
         String convertedBody = response.getBody().asString();
 
-        assertThat(response.getStatusCode()).isEqualTo(404);
-        Logger.getLogger(SWApiApiElementsTests.class.getName()).log(Level.INFO, STATUS_OK +
+        assertThat(response.getStatusCode()).isEqualTo(NOT_FOUND_CODE);
+        logger.log(Level.INFO, STATUS_OK +
                 "\n Body content: " + convertedBody);
     }
 }

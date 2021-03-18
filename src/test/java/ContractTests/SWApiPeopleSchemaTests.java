@@ -19,15 +19,15 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 import static config.UriProvider.PEOPLESCHEMA;
+import static constants.Constants.elementTypePeople;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Tag("CONTRACT")
-public class SWApiPeopleSchemaTests {
-    final static String elementType = "people";
+class SWApiPeopleSchemaTests {
 
-    public static Stream<String> dataProvider() {
+    static Stream<String> dataProvider() {
         List<String> elementsList;
-        elementsList = ElementsGenerator.generateListOfStarWarsElements(elementType);
+        elementsList = ElementsGenerator.generateListOfStarWarsElements(elementTypePeople);
         return elementsList.stream();
     }
 

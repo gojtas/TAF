@@ -19,15 +19,15 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 import static config.UriProvider.VEHICLESSCHEMA;
+import static constants.Constants.elementTypeVehicles;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Tag("CONTRACT")
-public class SWApiVehiclesSchemaTests {
-    final static String elementType = "vehicles";
+class SWApiVehiclesSchemaTests {
 
-    public static Stream<String> dataProvider() {
+    static Stream<String> dataProvider() {
         List<String> elementsList;
-        elementsList = ElementsGenerator.generateListOfStarWarsElements(elementType);
+        elementsList = ElementsGenerator.generateListOfStarWarsElements(elementTypeVehicles);
         return elementsList.stream();
     }
 

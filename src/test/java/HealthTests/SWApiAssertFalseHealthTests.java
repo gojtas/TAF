@@ -5,10 +5,10 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static constants.Constants.STATUS_OK;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class SWApiAssertFalseHealthTests {
-    private int STATUS_OK = 200;
+class SWApiAssertFalseHealthTests {
 
     @Test
     @DisplayName("Negative Health Check for SWApi")

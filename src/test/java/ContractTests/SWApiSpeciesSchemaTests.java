@@ -21,17 +21,17 @@ import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 import static config.UriProvider.SPECIESSCHEMA;
+import static constants.Constants.elementTypeSpecies;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Tag("CONTRACT")
-public class SWApiSpeciesSchemaTests {
-    final static String elementType = "species";
+class SWApiSpeciesSchemaTests {
 
     private static final Logger LOGGER = Logger.getLogger(SWApiSpeciesSchemaTests.class.getName());
 
-    public static Stream<String> dataProvider() {
+    static Stream<String> dataProvider() {
         List<String> elementsList;
-        elementsList = ElementsGenerator.generateListOfStarWarsElements(elementType);
+        elementsList = ElementsGenerator.generateListOfStarWarsElements(elementTypeSpecies);
         return elementsList.stream();
     }
 
