@@ -2,7 +2,8 @@ package config;
 
 public enum UriProvider {
 
-    SWAPIAPI(EnvConfig.getString("SWAPIApi.apiUrl"));
+    SWAPIAPI(EnvConfig.getString("SWAPIApi.apiUrl")),
+    GORESTURL(EnvConfig.getString("GORESTApi.apiUrl"));
     private final String baseUri;
 
     UriProvider(String baseUri) {
