@@ -1,4 +1,5 @@
 # TAF
 Test Automation Framework for 
 Rest Endpoint https://swapi.dev/
+and https://gorest.co.in/
 use Java ver. 11 corretto
