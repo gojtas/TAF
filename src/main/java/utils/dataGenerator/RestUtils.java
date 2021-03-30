@@ -67,7 +67,7 @@ public class RestUtils {
         }
     }
 
-    private static Response getResponse(RequestSpecification requestSpecification) {
+    public static Response getResponse(RequestSpecification requestSpecification) {
         logger.info(requestSpecification.filter(requestLoggingFilter));
         return requestSpecification.get(path);
     }
@@ -85,6 +85,11 @@ public class RestUtils {
     public static Response postResponse(RequestSpecification requestSpecification) {
         logger.info(requestSpecification.filter(requestLoggingFilter));
         return requestSpecification.post(path);
+    }
+
+    public static Response patchResponse(RequestSpecification requestSpecification) {
+        logger.info(requestSpecification.filter(requestLoggingFilter));
+        return requestSpecification.patch(path);
     }
 
     private static JsonPath getJsonPath(Response res) {
@@ -127,6 +132,16 @@ public class RestUtils {
         return RestAssured.given().spec(requestSpecBuilder.build());
     }
 
+    public static RequestSpecification getRequestSpecificationWithJsonBody(String jsonBody, String headerValue, String reqId) {
+        RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
+        requestSpecBuilder.addHeader("Content-Type", "application/json");
+        requestSpecBuilder.addHeader("Accept", headerValue);
+        requestSpecBuilder.addHeader("Authorization", "Bearer aaf99feb0bb058e48e0f8c076479958a83453dbb8ec5e1ea827ea5b7349fa2bf");
+        requestSpecBuilder.setBasePath("/users/" + reqId);
+        requestSpecBuilder.setBody(jsonBody);
+        return RestAssured.given().spec(requestSpecBuilder.build());
+    }
+
     public static RequestSpecification getRequestSpecificationWithJsonBody(String jsonBody, String headerValue,
                                                                            String assetHeader, String assetHeaderValue) {
         RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
@@ -143,6 +158,14 @@ public class RestUtils {
         requestSpecBuilder.addHeader("Accept", headerValue);
         requestSpecBuilder.addHeader("Authorization", "Bearer aaf99feb0bb058e48e0f8c076479958a83453dbb8ec5e1ea827ea5b7349fa2bf");
         requestSpecBuilder.setBasePath("/users/" + reqId);
+        return RestAssured.given().spec(requestSpecBuilder.build());
+    }
+
+    public static RequestSpecification getRequestSpecificationWithoutBodyForGet(String headerValue) {
+        RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
+        requestSpecBuilder.addHeader("Content-Type", "application/json");
+        requestSpecBuilder.addHeader("Accept", headerValue);
+        requestSpecBuilder.setBasePath("/users");
         return RestAssured.given().spec(requestSpecBuilder.build());
     }
 

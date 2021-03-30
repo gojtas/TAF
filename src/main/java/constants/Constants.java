@@ -6,6 +6,7 @@ public class Constants {
 
     public static final int STATUS_OK = 200;
     public static final int NOT_FOUND_CODE = 404;
+    public static final int NO_CONTENT = 204;
     public static final int NUM_LINES_TO_SKIP = 1;
     public static final String CONTENT_TYPE = "application/json";
 
