@@ -11,6 +11,8 @@ import readers.InputFileReader;
 import utils.dataGenerator.ElementsGenerator;
 
 import static constants.Constants.elementTypeVehicles;
+import static readers.InputFileReader.readDataFromFile;
+import static utils.dataGenerator.ElementsGenerator.generateListOfStarWarsElements;
 
 @Tag("CONTRACT")
 class SWApiVehiclesSchemaTests {
@@ -20,7 +22,7 @@ class SWApiVehiclesSchemaTests {
 
     static Stream<String> dataProvider() {
         List<String> elementsList;
-        elementsList = ElementsGenerator.generateListOfStarWarsElements(elementTypeVehicles);
+        elementsList = generateListOfStarWarsElements(elementTypeVehicles);
         return elementsList.stream();
     }
 
@@ -29,7 +31,7 @@ class SWApiVehiclesSchemaTests {
     @DisplayName("Verify Schema for Vehicles")
     void testSchema(String transactionJsonOutput) {
 
-        expectedSchema = InputFileReader.readDataFromFile(schemaVehicles);
+        expectedSchema = readDataFromFile(schemaVehicles);
         SchemaCheck.checkSchema(transactionJsonOutput, expectedSchema);
     }
 }

@@ -7,11 +7,12 @@ import io.restassured.specification.RequestSpecification;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.jupiter.api.*;
-import readers.InputFileReader;
 import utils.dataGenerator.RestUtils;
 
 import static config.UriProvider.GORESTURL;
 import static constants.Constants.JSON_HEADER_VALUE;
+import static readers.InputFileReader.readDataFromFile;
+import static utils.dataGenerator.RestUtils.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Tag("COMPONENT")
@@ -29,17 +30,17 @@ class GoRestApiCRUDTests {
 
     @AfterAll
     static void cleanUp() {
-        requestSpecification = RestUtils.getRequestSpecificationWithoutBody(JSON_HEADER_VALUE,
+        requestSpecification = getRequestSpecificationWithoutBody(JSON_HEADER_VALUE,
                 idToCleanUp);
-        Response deleteResponse = RestUtils.deleteResponse(requestSpecification);
+        Response deleteResponse = deleteResponse(requestSpecification);
     }
 
     @Order(1)
     @DisplayName("List users - GET")
     @Test
     void listUsersTests() {
-        requestSpecification = RestUtils.getRequestSpecificationWithoutBodyForGet(JSON_HEADER_VALUE);
-        Response response = RestUtils.getResponse(requestSpecification);
+        requestSpecification = getRequestSpecificationWithoutBodyForGet(JSON_HEADER_VALUE);
+        Response response = getResponse(requestSpecification);
 
         CheckAssertions.checkGetOperation(response);
     }
@@ -48,10 +49,10 @@ class GoRestApiCRUDTests {
     @DisplayName("Create user - CREATE")
     @Test
     void createUserTest() {
-        String file = InputFileReader.readDataFromFile(inputFileForNewUser);
+        String file = readDataFromFile(inputFileForNewUser);
 
-        requestSpecification = RestUtils.getRequestSpecificationWithJsonBody(file, JSON_HEADER_VALUE);
-        Response response = RestUtils.postResponse(requestSpecification);
+        requestSpecification = getRequestSpecificationWithJsonBody(file, JSON_HEADER_VALUE);
+        Response response = postResponse(requestSpecification);
 
         CheckAssertions.checkCreateOperation(response);
         idToCleanUp = SupportingMethods.getOperationId(response);
@@ -61,11 +62,11 @@ class GoRestApiCRUDTests {
     @DisplayName("Update user - PATCH")
     @Test
     void createAndUpdateUserTest() {
-        String fileForUpdate = InputFileReader.readDataFromFile(inputFileForUpdateUser);
+        String fileForUpdate = readDataFromFile(inputFileForUpdateUser);
 
-        requestSpecification = RestUtils.getRequestSpecificationWithJsonBody(fileForUpdate, JSON_HEADER_VALUE,
+        requestSpecification = getRequestSpecificationWithJsonBody(fileForUpdate, JSON_HEADER_VALUE,
                 idToCleanUp);
-        Response updateResponse = RestUtils.patchResponse(requestSpecification);
+        Response updateResponse = patchResponse(requestSpecification);
 
         CheckAssertions.checkPatchOperation(updateResponse);
         logger.log(Level.INFO, "User with id: " + idToCleanUp +
@@ -76,9 +77,9 @@ class GoRestApiCRUDTests {
     @DisplayName("Remove user - DELETE")
     @Test
     void crateAndDeleteUserTest() {
-        requestSpecification = RestUtils.getRequestSpecificationWithoutBody(JSON_HEADER_VALUE,
+        requestSpecification = getRequestSpecificationWithoutBody(JSON_HEADER_VALUE,
                 idToCleanUp);
-        Response deleteResponse = RestUtils.deleteResponse(requestSpecification);
+        Response deleteResponse = deleteResponse(requestSpecification);
 
         CheckAssertions.checkDeleteOperation(deleteResponse);
         logger.log(Level.INFO, "User with id: " + idToCleanUp +
