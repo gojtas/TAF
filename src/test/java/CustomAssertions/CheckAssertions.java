@@ -38,4 +38,11 @@ public class CheckAssertions {
         String actualDeleteCode = deleteJsonObject.get("code").toString();
         assertThat(actualDeleteCode).isEqualTo("204");
     }
+    public static void checkCreateOperation(Response response) {
+
+        String responseAfterCreate = response.getBody().asString();
+        JSONObject createJsonObject = new JSONObject(responseAfterCreate);
+        String actualCreateCode = createJsonObject.get("code").toString();
+        assertThat(actualCreateCode).isEqualTo("201");
+    }
 }

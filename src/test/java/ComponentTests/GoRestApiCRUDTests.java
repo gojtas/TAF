@@ -11,8 +11,9 @@ import readers.InputFileReader;
 import utils.dataGenerator.RestUtils;
 
 import static config.UriProvider.GORESTURL;
+import static constants.Constants.JSON_HEADER_VALUE;
 
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Tag("COMPONENT")
 class GoRestApiCRUDTests {
     private static final Logger logger = Logger.getLogger(GoRestApiCRUDTests.class.getName());
@@ -20,8 +21,6 @@ class GoRestApiCRUDTests {
     private static String idToCleanUp = "";
     private String inputFileForNewUser = "GoRestInput/GoRestNewUser.json";
     private String inputFileForUpdateUser = "GoRestInput/GoRestUserUpdate.json";
-    private CheckAssertions checkAssertions;
-    private SupportingMethods supportingMethods;
 
     @BeforeAll
     static void methodSetUp() {
@@ -30,52 +29,59 @@ class GoRestApiCRUDTests {
 
     @AfterAll
     static void cleanUp() {
-        requestSpecification = RestUtils.getRequestSpecificationWithoutBody("application/json",
+        requestSpecification = RestUtils.getRequestSpecificationWithoutBody(JSON_HEADER_VALUE,
                 idToCleanUp);
         Response deleteResponse = RestUtils.deleteResponse(requestSpecification);
     }
 
-    @DisplayName("Remove user - CREATE & DELETE")
-    @Test
-    void crateAndDeleteUserTest() {
-        String file = InputFileReader.readDataFromFile(inputFileForNewUser);
-
-        requestSpecification = RestUtils.getRequestSpecificationWithJsonBody(file, "application/json");
-        Response response = RestUtils.postResponse(requestSpecification);
-        requestSpecification = RestUtils.getRequestSpecificationWithoutBody("application/json",
-                SupportingMethods.getOperationId(response));
-        Response deleteResponse = RestUtils.deleteResponse(requestSpecification);
-
-        CheckAssertions.checkDeleteOperation(deleteResponse);
-        logger.log(Level.INFO, "User with id: " + SupportingMethods.getOperationId(response) +
-                " successfully removed");
-    }
-
-    @DisplayName("Update user - CREATE & PATCH")
-    @Test
-    void createAndUpdateUserTest() {
-        String file = InputFileReader.readDataFromFile(inputFileForNewUser);
-        String fileForUpdate = InputFileReader.readDataFromFile(inputFileForUpdateUser);
-
-        requestSpecification = RestUtils.getRequestSpecificationWithJsonBody(file, "application/json");
-        Response response = RestUtils.postResponse(requestSpecification);
-        requestSpecification = RestUtils.getRequestSpecificationWithJsonBody(fileForUpdate, "application/json",
-                SupportingMethods.getOperationId(response));
-        Response updateResponse = RestUtils.patchResponse(requestSpecification);
-
-        CheckAssertions.checkPatchOperation(updateResponse);
-        logger.log(Level.INFO, "User with id: " + SupportingMethods.getOperationId(response) +
-                " updated successfully");
-
-        idToCleanUp = SupportingMethods.getOperationId(response);
-    }
-
+    @Order(1)
     @DisplayName("List users - GET")
     @Test
     void listUsersTests() {
-        requestSpecification = RestUtils.getRequestSpecificationWithoutBodyForGet("application/json");
+        requestSpecification = RestUtils.getRequestSpecificationWithoutBodyForGet(JSON_HEADER_VALUE);
         Response response = RestUtils.getResponse(requestSpecification);
 
         CheckAssertions.checkGetOperation(response);
+    }
+
+    @Order(2)
+    @DisplayName("Create user - CREATE")
+    @Test
+    void createUserTest() {
+        String file = InputFileReader.readDataFromFile(inputFileForNewUser);
+
+        requestSpecification = RestUtils.getRequestSpecificationWithJsonBody(file, JSON_HEADER_VALUE);
+        Response response = RestUtils.postResponse(requestSpecification);
+
+        CheckAssertions.checkCreateOperation(response);
+        idToCleanUp = SupportingMethods.getOperationId(response);
+    }
+
+    @Order(3)
+    @DisplayName("Update user - PATCH")
+    @Test
+    void createAndUpdateUserTest() {
+        String fileForUpdate = InputFileReader.readDataFromFile(inputFileForUpdateUser);
+
+        requestSpecification = RestUtils.getRequestSpecificationWithJsonBody(fileForUpdate, JSON_HEADER_VALUE,
+                idToCleanUp);
+        Response updateResponse = RestUtils.patchResponse(requestSpecification);
+
+        CheckAssertions.checkPatchOperation(updateResponse);
+        logger.log(Level.INFO, "User with id: " + idToCleanUp +
+                " updated successfully");
+    }
+
+    @Order(4)
+    @DisplayName("Remove user - DELETE")
+    @Test
+    void crateAndDeleteUserTest() {
+        requestSpecification = RestUtils.getRequestSpecificationWithoutBody(JSON_HEADER_VALUE,
+                idToCleanUp);
+        Response deleteResponse = RestUtils.deleteResponse(requestSpecification);
+
+        CheckAssertions.checkDeleteOperation(deleteResponse);
+        logger.log(Level.INFO, "User with id: " + idToCleanUp +
+                " successfully removed");
     }
 }

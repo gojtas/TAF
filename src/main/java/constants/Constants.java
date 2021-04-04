@@ -24,4 +24,5 @@ public class Constants {
     public final static String elementTypeStarships = "starships";
     public final static String elementTypeVehicles = "vehicles";
 
+    public final static String JSON_HEADER_VALUE = "application/json";
 }

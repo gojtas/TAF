@@ -7,6 +7,8 @@ import io.restassured.response.Response;
 import java.util.ArrayList;
 import java.util.List;
 
+import static core.components.SwapiDevComponent.getSwapiElement;
+
 public class ElementsGenerator {
 
     private ElementsGenerator() {
@@ -15,8 +17,8 @@ public class ElementsGenerator {
     public static List<String> generateListOfStarWarsElements(String element) {
 
         List<String> responseList = new ArrayList<>();
-        for (int i = 1; i < ElementsGenerator.getNumberOfElements(element); i++) {
-            Response response = SwapiDevComponent.getSwapiElement(element, i);
+        for (int i = 1; i < getNumberOfElements(element); i++) {
+            Response response = getSwapiElement(element, i);
             String convertedBody = response.getBody().asString();
             if (!convertedBody.contains("\"detail\":\"Not found\"")) {
                 responseList.add(convertedBody);
@@ -28,7 +30,6 @@ public class ElementsGenerator {
     public static int getNumberOfElements(String elementType) {
         Response response = SwapiDevComponent.getSwapiElementCounter(elementType);
         ResponseConverter responseConverter = new ResponseConverter(response);
-        int elementCounter = Integer.parseInt(responseConverter.retrieveValue("count")) + 1;
-        return elementCounter;
+        return Integer.parseInt(responseConverter.retrieveValue("count")) + 1;
     }
 }
