@@ -14,7 +14,7 @@ public class CheckAssertions {
         String outputAfterUpdate = response.getBody().asString();
         JSONObject outputJson = new JSONObject(outputAfterUpdate);
         String currentStatusCode = outputJson.get("code").toString();
-        assertThat(currentStatusCode).isEqualTo(STATUS_OK);
+        assertThat(currentStatusCode).isEqualTo("200");
 
         String limit = outputJson.getJSONObject("meta")
                 .getJSONObject("pagination")
@@ -28,7 +28,7 @@ public class CheckAssertions {
         String outputAfterUpdate = response.getBody().asString();
         JSONObject outputJson = new JSONObject(outputAfterUpdate);
         String currentStatusCode = outputJson.get("code").toString();
-        assertThat(currentStatusCode).isEqualTo(STATUS_OK);
+        assertThat(currentStatusCode).isEqualTo("200");
     }
 
     public static void checkDeleteOperation(Response response) {
@@ -36,6 +36,6 @@ public class CheckAssertions {
         String outputAfterDelete = response.getBody().asString();
         JSONObject deleteJsonObject = new JSONObject(outputAfterDelete);
         String actualDeleteCode = deleteJsonObject.get("code").toString();
-        assertThat(actualDeleteCode).isEqualTo(NO_CONTENT);
+        assertThat(actualDeleteCode).isEqualTo("204");
     }
 }
