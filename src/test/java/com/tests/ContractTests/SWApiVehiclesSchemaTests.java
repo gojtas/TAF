@@ -1,37 +1,36 @@
-package ContractTests;
+package com.tests.ContractTests;
 
 import core.SchemaCheck;
-import java.util.List;
-import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import readers.InputFileReader;
-import utils.dataGenerator.ElementsGenerator;
 
-import static constants.Constants.elementTypeStarships;
+import java.util.List;
+import java.util.stream.Stream;
+
+import static constants.Constants.elementTypeVehicles;
 import static readers.InputFileReader.readDataFromFile;
 import static utils.dataGenerator.ElementsGenerator.generateListOfStarWarsElements;
 
 @Tag("CONTRACT")
-class SWApiStarshipsSchemaTests {
+class SWApiVehiclesSchemaTests {
 
     private String expectedSchema = null;
-    private String schemaStarships = "SchemaCheck/StarshipsSchema.json";
+    private String schemaVehicles = "SchemaCheck/VehiclesSchema.json";
 
     static Stream<String> dataProvider() {
         List<String> elementsList;
-        elementsList = generateListOfStarWarsElements(elementTypeStarships);
+        elementsList = generateListOfStarWarsElements(elementTypeVehicles);
         return elementsList.stream();
     }
 
-    @ParameterizedTest(name = "Starships schema check: {0}")
+    @ParameterizedTest(name = "Vehicles schema check: {0}")
     @MethodSource("dataProvider")
-    @DisplayName("Verify Schema for Starships")
+    @DisplayName("Verify Schema for Vehicles")
     void testSchema(String transactionJsonOutput) {
 
-        expectedSchema = readDataFromFile(schemaStarships);
+        expectedSchema = readDataFromFile(schemaVehicles);
         SchemaCheck.checkSchema(transactionJsonOutput, expectedSchema);
     }
 }

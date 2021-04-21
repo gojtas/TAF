@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.orgr/testng-1.0.dtd" >
+
+<suite name="TestAll">
+
+    <test name="serivcesGeneral">
+            <packages>
+                <package name="com.tests.*" />
+            </packages>
+    </test>
+</suite>

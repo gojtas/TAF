@@ -1,4 +1,4 @@
-package HealthTests;
+package com.tests.HealthTests;
 
 import core.components.SwapiDevComponent;
 import io.restassured.response.Response;
@@ -10,8 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class SWApiAssertFalseHealthTests {
 
-    @Test
+
     @DisplayName("Negative Health Check for SWApi")
+    @Test
     void test() {
         String suiteName = "Negative Health Check for SWApi";
 

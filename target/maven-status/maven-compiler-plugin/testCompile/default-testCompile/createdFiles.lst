@@ -1,0 +1,14 @@
+ContractTests\SWApiPlanetsSchemaTests.class
+HealthTests\SWApiAssertFalseHealthTests.class
+ComponentTests\GoRestApiCRUDTests.class
+ComponentTests\SWApiNegativeScenariosTests.class
+CustomAssertions\CheckAssertions.class
+ContractTests\SWApiPeopleSchemaTests.class
+HealthTests\SWApiHealthTest.class
+SupportMethods\SupportingMethods.class
+ContractTests\SWApiSpeciesSchemaTests.class
+ComponentTests\SWApiSearchTests.class
+ComponentTests\SWApiHeadersTests.class
+ContractTests\SWApiFilmsSchemaTests.class
+ContractTests\SWApiStarshipsSchemaTests.class
+ContractTests\SWApiVehiclesSchemaTests.class

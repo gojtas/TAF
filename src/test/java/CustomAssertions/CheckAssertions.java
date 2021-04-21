@@ -3,8 +3,6 @@ package CustomAssertions;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 
-import static constants.Constants.NO_CONTENT;
-import static constants.Constants.STATUS_OK;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CheckAssertions {
@@ -38,6 +36,7 @@ public class CheckAssertions {
         String actualDeleteCode = deleteJsonObject.get("code").toString();
         assertThat(actualDeleteCode).isEqualTo("204");
     }
+
     public static void checkCreateOperation(Response response) {
 
         String responseAfterCreate = response.getBody().asString();

@@ -1,14 +1,13 @@
-package ContractTests;
+package com.tests.ContractTests;
 
 import core.SchemaCheck;
-import java.util.List;
-import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import readers.InputFileReader;
-import utils.dataGenerator.ElementsGenerator;
+
+import java.util.List;
+import java.util.stream.Stream;
 
 import static constants.Constants.elementTypePeople;
 import static readers.InputFileReader.readDataFromFile;

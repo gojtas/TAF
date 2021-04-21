@@ -1,14 +1,14 @@
-package ComponentTests;
+package com.tests.ComponentTests;
 
 import CustomAssertions.CheckAssertions;
 import SupportMethods.SupportingMethods;
+import io.qameta.allure.Description;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.jupiter.api.*;
 import utils.dataGenerator.RestUtils;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static config.UriProvider.GORESTURL;
 import static constants.Constants.JSON_HEADER_VALUE;
 import static readers.InputFileReader.readDataFromFile;
@@ -37,6 +37,7 @@ class GoRestApiCRUDTests {
 
     @Order(1)
     @DisplayName("List users - GET")
+    @Description("Test Description: List users")
     @Test
     void listUsersTests() {
         requestSpecification = getRequestSpecificationWithoutBodyForGet(JSON_HEADER_VALUE);
@@ -47,6 +48,7 @@ class GoRestApiCRUDTests {
 
     @Order(2)
     @DisplayName("Create user - CREATE")
+    @Description("Test Description: Create user")
     @Test
     void createUserTest() {
         String file = readDataFromFile(inputFileForNewUser);
@@ -60,6 +62,7 @@ class GoRestApiCRUDTests {
 
     @Order(3)
     @DisplayName("Update user - PATCH")
+    @Description("Test Description: Update user")
     @Test
     void createAndUpdateUserTest() {
         String fileForUpdate = readDataFromFile(inputFileForUpdateUser);
@@ -75,6 +78,7 @@ class GoRestApiCRUDTests {
 
     @Order(4)
     @DisplayName("Remove user - DELETE")
+    @Description("Test Description: Remove user")
     @Test
     void crateAndDeleteUserTest() {
         requestSpecification = getRequestSpecificationWithoutBody(JSON_HEADER_VALUE,

@@ -1,6 +1,7 @@
-package HealthTests;
+package com.tests.HealthTests;
 
 import core.components.SwapiDevComponent;
+import io.qameta.allure.Description;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -12,8 +13,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Tag("HEALTH")
 class SWApiHealthTest {
 
-    @Test
     @DisplayName("Health Check for SWApi")
+    @Description("Health Check for SWAPI endpoint")
+    @Test
     void test() {
         String suiteName = "Health Check for SWApi";
 

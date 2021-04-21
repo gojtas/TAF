@@ -1,12 +1,13 @@
-package ComponentTests;
+package com.tests.ComponentTests;
 
 import core.components.SwapiDevComponent;
 import io.restassured.response.Response;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static constants.Constants.NOT_FOUND_CODE;
 import static constants.Constants.NUM_LINES_TO_SKIP;

@@ -1,0 +1,14 @@
+core\Request.class
+utils\dataGenerator\DataFileReader.class
+core\ResponseConverter.class
+config\UriProvider.class
+utils\dataGenerator\RestUtils.class
+core\SchemaCheck.class
+readers\InputFileReader.class
+core\RequestService.class
+testdata\MessagesForSWApi.class
+core\Request$RequestBuilder.class
+core\components\SwapiDevComponent.class
+config\EnvConfig.class
+constants\Constants.class
+utils\dataGenerator\ElementsGenerator.class
