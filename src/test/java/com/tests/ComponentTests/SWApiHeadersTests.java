@@ -3,6 +3,9 @@ package com.tests.ComponentTests;
 import constants.Constants;
 import core.components.SwapiDevComponent;
 import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -16,6 +19,8 @@ import static constants.Constants.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static testdata.MessagesForSWApi.STATUS_OK_EXPECTED;
 
+@Epic("Headers Check")
+@Feature("User verifies if mandatory headers are present in response")
 @Tag("COMPONENT")
 class SWApiHeadersTests {
     private final Logger logger = Logger.getLogger(SWApiHeadersTests.class.getName());
@@ -23,6 +28,7 @@ class SWApiHeadersTests {
     @ParameterizedTest(name = "Path {0} and index {1}.")
     @Description("Test Description: Header Tests")
     @DisplayName("Element check for SWApi")
+    @Story("User checks headers in different endpoints responses")
     @CsvFileSource(resources = "/ComponentTests/Swapi.csv", numLinesToSkip = NUM_LINES_TO_SKIP)
     void test(String element, int index) {
 
