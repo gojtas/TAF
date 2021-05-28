@@ -9,19 +9,19 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static constants.Constants.elementTypeFilms;
+import static constants.Constants.ELEMENT_TYPE_FILMS;
+import static constants.Constants.EXPECTED_SCHEMA;
+import static constants.Constants.SCHEMA_FILMS;
 import static readers.InputFileReader.readDataFromFile;
 import static utils.dataGenerator.ElementsGenerator.generateListOfStarWarsElements;
 
 @Tag("CONTRACT")
 class SWApiFilmsSchemaTests {
 
-    private String expectedSchema = null;
-    private String schemaFilms = "SchemaCheck/FilmSchema.json";
 
     static Stream<String> dataProvider() {
         List<String> elementsList;
-        elementsList = generateListOfStarWarsElements(elementTypeFilms);
+        elementsList = generateListOfStarWarsElements(ELEMENT_TYPE_FILMS);
         return elementsList.stream();
     }
 
@@ -30,7 +30,7 @@ class SWApiFilmsSchemaTests {
     @DisplayName("Verify Schema for Films")
     void testSchema(String transactionJsonOutput) {
 
-        expectedSchema = readDataFromFile(schemaFilms);
-        SchemaCheck.checkSchema(transactionJsonOutput, expectedSchema);
+        EXPECTED_SCHEMA = readDataFromFile(SCHEMA_FILMS);
+        SchemaCheck.checkSchema(transactionJsonOutput, EXPECTED_SCHEMA);
     }
 }
