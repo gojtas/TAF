@@ -18,7 +18,6 @@ import static utils.dataGenerator.ElementsGenerator.generateListOfStarWarsElemen
 @Tag("CONTRACT")
 class SWApiFilmsSchemaTests {
 
-
     static Stream<String> dataProvider() {
         List<String> elementsList;
         elementsList = generateListOfStarWarsElements(ELEMENT_TYPE_FILMS);

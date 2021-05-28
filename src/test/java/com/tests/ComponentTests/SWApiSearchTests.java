@@ -2,6 +2,9 @@ package com.tests.ComponentTests;
 
 import core.ResponseConverter;
 import core.components.SwapiDevComponent;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.jupiter.api.DisplayName;
@@ -15,12 +18,15 @@ import java.util.logging.Logger;
 import static constants.Constants.NUM_LINES_TO_SKIP;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Epic("Element check for SW API")
+@Feature("User tries to get the successful response with search endpoint")
 @Tag("COMPONENT")
 class SWApiSearchTests {
     private final Logger logger = Logger.getLogger(SWApiHeadersTests.class.getName());
 
     @ParameterizedTest(name = "Path {0} and keyword {1}.")
     @DisplayName("Element check for SWApi")
+    @Story("User tries to get the proper response for Search Endpoint")
     @CsvFileSource(resources = "/ComponentTests/InputForSearch.csv", numLinesToSkip = NUM_LINES_TO_SKIP)
     void test(String element, String keyword) {
 

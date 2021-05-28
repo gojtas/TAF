@@ -3,6 +3,9 @@ package com.tests.ComponentTests;
 import CustomAssertions.CheckAssertions;
 import SupportMethods.SupportingMethods;
 import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.*;
@@ -12,8 +15,16 @@ import java.util.logging.Logger;
 import static config.UriProvider.GORESTURL;
 import static constants.Constants.JSON_HEADER_VALUE;
 import static readers.InputFileReader.readDataFromFile;
-import static utils.dataGenerator.RestUtils.*;
+import static utils.dataGenerator.RestUtils.deleteResponse;
+import static utils.dataGenerator.RestUtils.getRequestSpecificationWithJsonBody;
+import static utils.dataGenerator.RestUtils.getRequestSpecificationWithoutBody;
+import static utils.dataGenerator.RestUtils.getRequestSpecificationWithoutBodyForGet;
+import static utils.dataGenerator.RestUtils.getResponse;
+import static utils.dataGenerator.RestUtils.patchResponse;
+import static utils.dataGenerator.RestUtils.postResponse;
 
+@Epic("API CRUD Operations")
+@Feature("Users try to send different REST API commands")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Tag("COMPONENT")
 class GoRestApiCRUDTests {
@@ -38,6 +49,7 @@ class GoRestApiCRUDTests {
     @Order(1)
     @DisplayName("List users - GET")
     @Description("Test Description: List users")
+    @Story("User tries to send GET request")
     @Test
     void listUsersTests() {
         requestSpecification = getRequestSpecificationWithoutBodyForGet(JSON_HEADER_VALUE);
@@ -49,6 +61,7 @@ class GoRestApiCRUDTests {
     @Order(2)
     @DisplayName("Create user - CREATE")
     @Description("Test Description: Create user")
+    @Story("User tries to send Create request")
     @Test
     void createUserTest() {
         String file = readDataFromFile(inputFileForNewUser);
@@ -63,6 +76,7 @@ class GoRestApiCRUDTests {
     @Order(3)
     @DisplayName("Update user - PATCH")
     @Description("Test Description: Update user")
+    @Story("User tries to send Patch request")
     @Test
     void createAndUpdateUserTest() {
         String fileForUpdate = readDataFromFile(inputFileForUpdateUser);
@@ -79,6 +93,7 @@ class GoRestApiCRUDTests {
     @Order(4)
     @DisplayName("Remove user - DELETE")
     @Description("Test Description: Remove user")
+    @Story("User tries to send Delete request")
     @Test
     void crateAndDeleteUserTest() {
         requestSpecification = getRequestSpecificationWithoutBody(JSON_HEADER_VALUE,
