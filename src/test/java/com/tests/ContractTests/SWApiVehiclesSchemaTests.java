@@ -1,20 +1,23 @@
 package com.tests.ContractTests;
 
 import core.SchemaCheck;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-
 import java.util.List;
 import java.util.stream.Stream;
-
 import static constants.Constants.EXPECTED_SCHEMA;
 import static constants.Constants.SCHEMA_VEHICLES;
 import static constants.Constants.ELEMENT_TYPE_VEHICLES;
 import static readers.InputFileReader.readDataFromFile;
 import static utils.dataGenerator.ElementsGenerator.generateListOfStarWarsElements;
 
+@Epic("Contract Schema Check - Vehicles")
+@Feature("User verifies if the schema for vehicles is valid")
 @Tag("CONTRACT")
 class SWApiVehiclesSchemaTests {
 
@@ -26,6 +29,7 @@ class SWApiVehiclesSchemaTests {
 
     @ParameterizedTest(name = "Vehicles schema check: {0}")
     @MethodSource("dataProvider")
+    @Story("User checks the vehicles schemas")
     @DisplayName("Verify Schema for Vehicles")
     void testSchema(String transactionJsonOutput) {
 
