@@ -31,6 +31,7 @@
                     </dependency>
                 </dependencies>
                 <configuration>
+                    <violationSeverity>warning</violationSeverity>
                     <configLocation>src/test/resources/google-checks.xml</configLocation>
                 </configuration>
             </plugin>
