@@ -4,7 +4,7 @@ import core.Request;
 import core.RequestService;
 import io.restassured.response.Response;
 
-import static config.UriProvider.*;
+import static config.UriProvider.SWAPIAPI;
 
 public class SwapiDevComponent {
 
