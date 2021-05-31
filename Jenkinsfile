@@ -12,6 +12,10 @@ pipeline {
                 sh "mvn clean install"
             }
         }
+        stage("Tests") {
+            steps {
+                sh "mvn -Dtest=*test test" 
+        }
     }
 
     post {
