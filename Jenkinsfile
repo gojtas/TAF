@@ -15,9 +15,9 @@ pipeline {
         stage("Tests") {
             steps {
                 sh "mvn -Dtest=*test test" 
+            }
         }
     }
-
     post {
         always {
             cleanWs()
