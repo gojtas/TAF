@@ -8,10 +8,24 @@ pipeline {
                 }
             }
         }
-        stage("Tests") {
+        stage("Smoke Tests") {
+                    steps {
+                    withMaven(maven: 'mvn') {
+                        sh "mvn -Dgroups=SMOKE test"
+                        }
+                    }
+                }
+        stage("Contract Tests") {
             steps {
             withMaven(maven: 'mvn') {
                 sh "mvn -Dgroups=CONTRACT test"
+                }
+            }
+        }
+        stage("Component Tests") {
+            steps {
+            withMaven(maven: 'mvn') {
+                sh "mvn -Dgroups=COMPONENT test"
                 }
             }
         }

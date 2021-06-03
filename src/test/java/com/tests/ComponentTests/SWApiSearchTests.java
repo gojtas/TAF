@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Epic("Element check for SW API")
 @Feature("User tries to get the successful response with search endpoint")
-@Tag("COMPONENT")
+//@Tag("COMPONENT")
 class SWApiSearchTests {
     private final Logger logger = Logger.getLogger(SWApiHeadersTests.class.getName());
 

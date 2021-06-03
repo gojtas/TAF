@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Epic("Health check for SW API")
 @Feature("User verifies if the status for SW API is OK")
-@Tag("HEALTH")
+@Tag("SMOKE")
 class SWApiHealthTest {
 
     @DisplayName("Health Check for SW Api")

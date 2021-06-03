@@ -19,7 +19,7 @@ import static testdata.MessagesForSWApi.STATUS_OK_EXPECTED;
 
 @Epic("Headers Check")
 @Feature("User verifies if mandatory headers are present in response")
-@Tag("COMPONENT")
+//@Tag("COMPONENT")
 class SWApiHeadersTests {
     private final Logger logger = Logger.getLogger(SWApiHeadersTests.class.getName());
 
