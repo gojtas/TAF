@@ -39,8 +39,8 @@ pipeline {
                     includeProperties: false,
                     jdk: '',
                     properties: [],
-                    reportBuildPolicy: "ALWAYS",
-                    results: [[path: "$JOB_BASE_NAME/target/allure-results"]]
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'allure-results']]
                     ])
                 }
             }
