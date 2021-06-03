@@ -7,20 +7,30 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.json.JSONObject;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import utils.dataGenerator.RestUtils;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static config.UriProvider.SWAPIAPI;
 import static constants.Constants.NUM_LINES_TO_SKIP;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Epic("Element check for SW API")
 @Feature("User tries to get the successful response with search endpoint")
-//@Tag("COMPONENT")
+@Tag("COMPONENT")
 class SWApiSearchTests {
     private final Logger logger = Logger.getLogger(SWApiHeadersTests.class.getName());
+
+    @BeforeAll
+    static void methodSetUp() {
+        RestUtils.setFullUri(SWAPIAPI.getUrl(), "");
+    }
 
     @ParameterizedTest(name = "Path {0} and keyword {1}.")
     @DisplayName("Element check for SWApi")
