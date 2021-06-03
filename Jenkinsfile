@@ -12,7 +12,7 @@ pipeline {
         stage("Tests") {
             steps {
             withMaven(maven: 'mvn') {
-                sh "mvn -Dgroups=CONTRACT  test"
+                sh "mvn -Dgroups=CONTRACT test"
                 }
             }
         }
