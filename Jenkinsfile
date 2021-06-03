@@ -32,7 +32,6 @@ pipeline {
                 }
             }
         }
-    }
         stage("Report") {
             steps {
                 script {
@@ -46,6 +45,8 @@ pipeline {
                 }
             }
         }
+    }
+
     post {
         always {
             cleanWs()
