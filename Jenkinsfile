@@ -31,7 +31,7 @@ pipeline {
         }
         stage("Report") {
             steps {
-                ws (my"target/allure-docker-api-usage/") {
+                ws ("target/allure-docker-api-usage/") {
                     script {
                         allure([
                         includeProperties: false,
