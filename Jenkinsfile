@@ -1,16 +1,21 @@
 pipeline {
     agent any
-
+tools {
+}
     stages {
         stage("Build") {
             steps {
-                sh "mvn -version"
+            withMaven(maven: 'mvn') {
+                sh 'mvn -version'
                 sh "mvn clean install"
+                }
             }
         }
         stage("Tests") {
             steps {
+            withMaven(maven: 'mvn') {
                 sh "mvn -Dtest=*test test" 
+                }
             }
         }
     }
