@@ -12,7 +12,7 @@ pipeline {
         stage("Tests") {
             steps {
             withMaven(maven: 'mvn') {
-                sh "cd ./ComponentTests/; mvn test -Dgroups=COMPONENT"
+                sh "cd ./src/test/java/com.tests/ComponentTests/; mvn test -Dgroups=COMPONENT"
                 }
             }
         }
