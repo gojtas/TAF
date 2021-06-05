@@ -28,20 +28,18 @@ pipeline {
                 sh "mvn -Dgroups=COMPONENT test"
                 }
             }
-        }
-        stage("Report") {
-            steps {
-                ws ("target/allure-docker-api-usage/") {
+
+            post {
                     script {
                         allure([
                         includeProperties: false,
                         jdk: '',
                         properties: [],
                         reportBuildPolicy: 'ALWAYS',
-                        results: [[path: 'allure-results']]
+                        results: [[path: 'target/allure-results']]
                         ])
                     }
-                }
+
             }
         }
     }
