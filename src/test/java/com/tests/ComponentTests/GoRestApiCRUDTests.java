@@ -50,7 +50,7 @@ class GoRestApiCRUDTests {
     static void cleanUp() {
         requestSpecification = getRequestSpecificationWithoutBody(JSON_HEADER_VALUE,
                 idToCleanUp);
-        Response deleteResponse = deleteResponse(requestSpecification);
+         deleteResponse(requestSpecification);
     }
 
     @Order(1)
