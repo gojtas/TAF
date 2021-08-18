@@ -2,8 +2,7 @@
 Test Automation Framework for 
 Rest Endpoint https://swapi.dev/
 and https://gorest.co.in/
-use Java ver. 11 corretto
-use of 3-party libraries
+use Java ver. 11 corretto and 3rd-party libraries:
 - JUnit4
 - Allure 2.14.0
 - Rest Assured 4.0.0
