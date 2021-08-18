@@ -4,7 +4,7 @@ Rest Endpoint https://swapi.dev/
 and https://gorest.co.in/
 use Java ver. 11 corretto
 use of 3-party libraries
-- JUnit4,
+- JUnit4
 - Allure 2.14.0
 - Rest Assured 4.0.0
 - jackson-annotations 2.11.3
@@ -39,4 +39,4 @@ To be able to see the results in graphical view, you new to download allure fram
 and add /bin to PATH in env variables (MS Windows)
 
 To generate allure report go to output target dir and execute following command:
-#### allure serve allure-results
+#### "allure serve allure-results"
